@@ -4,3 +4,5 @@ getObjectProperty = (obj, path, defaultValue) => {
     arrPath.forEach((e) => thisObj = thisObj && thisObj[e]);
     return thisObj || defaultValue || undefined;
 }
+
+
