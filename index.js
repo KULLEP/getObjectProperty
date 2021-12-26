@@ -1,3 +1,12 @@
+const obj = {
+    'pupa': {
+    'lupa': {
+        'beep': 'boop',
+    },
+        'foo': 'bar',
+    },
+};
+
 const getObjectProperty = (obj, path, defaultValue) => {
     let arrPath = typeof path === 'string' ? path.split('.') : []; // ['pupa', 'lupa']
     let thisObj = { ...obj };
@@ -15,3 +24,11 @@ const getObjectProperty_2 = (object, path, defaultValue) => {
     return result ??= defaultValue || undefined;;
 }
 
+
+
+getObjectProperty(obj, "pupa.lupa"); // > { beep : 'boop' }
+getObjectProperty(obj, "pupa.lupa.beep"); // > 'boop'
+getObjectProperty(obj, "pupa.foo"); // > 'bar'
+getObjectProperty(obj, "pupa.ne.tuda"); // > undefined
+getObjectProperty(obj, "pupa.ne.tuda", true); // > true
+getObjectProperty(obj, "pupa.ne.tuda", "Default value"); // > 'Default value'
